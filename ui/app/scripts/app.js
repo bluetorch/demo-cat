@@ -9,6 +9,7 @@ angular.module('demoCat', [
   'ml.common',
   'ml.search',
   'ml.search.tpls',
+  'angularFileUpload',
   'ml.utils'])
   .config(AppConfig);
 

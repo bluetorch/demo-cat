@@ -12,6 +12,7 @@
           description: '',
           host: '',
           hostType: 'internal',
+          script: '',
           browsers: [],
           features: [],
           domains: [],
@@ -29,6 +30,7 @@
 
       angular.extend($scope, {
         model: model,
+        scriptFile: [],
         editorOptions: {
           height: '100px',
           toolbarGroups: [
@@ -59,10 +61,10 @@
         submit: function() {
           var promise;
           if (edit) {
-            promise = demoService.save(model.demo, $routeParams.uri);
+            promise = demoService.save(model.demo, model.scriptFile, $routeParams.uri);
           }
           else {
-            promise = demoService.create(model.demo);
+            promise = demoService.create(model.demo, model.scriptFile);
           }
 
           promise.then(function(response) {
@@ -80,5 +82,6 @@
           }
         }
       });
+
     }
 }());
